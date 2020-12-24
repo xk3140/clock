@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>时钟</title>
   <style>
     body {
       background: #0d1320;
@@ -40,19 +40,18 @@
     let month = (now.getMonth() + 1) + ''
     let day = now.getDate() + ''
     if (showSymbol) {
-      document.getElementById('timer').innerHTML = `${hour}<span>:</span>${minute}`
-
+      document.getElementById('timer').innerHTML = `${hour.padStart(2, '0')}<span>:</span>${minute.padStart(2, '0')}`
     } else {
-      document.getElementById('timer').innerHTML = `${hour}<span style="opacity:0">:</span>${minute}`
+      document.getElementById('timer').innerHTML = `${hour.padStart(2, '0')}<span style="opacity:0">:</span>${minute.padStart(2, '0')}`
     }
     document.getElementById('date').innerHTML = `${month}月${day}日`
 
     showSymbol = !showSymbol
   }
 
-  index()
+  clock()
   setInterval(() => {
-    index()
+    clock()
   }, 1000)
 </script>
 </body>
